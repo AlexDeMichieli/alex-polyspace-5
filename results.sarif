@@ -1,0 +1,445 @@
+{
+  "$schema" : "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "Polyspace ",
+        "semanticVersion" : "R2022a Update 7",
+        "organization" : "MathWorks",
+        "rules" : [ {
+          "id" : "FLOAT_ZERO_DIV",
+          "name" : "Float division by zero"
+        }, {
+          "id" : "NON_INIT_VAR",
+          "name" : "Non-initialized variable"
+        }, {
+          "id" : "PTR_CAST",
+          "name" : "Unreliable cast of pointer"
+        }, {
+          "id" : "DEAD_CODE",
+          "name" : "Dead code"
+        }, {
+          "id" : "MISSING_RETURN",
+          "name" : "Missing return statement"
+        }, {
+          "id" : "USELESS_WRITE",
+          "name" : "Write without a further read"
+        } ]
+      }
+    },
+    "artifacts" : [ {
+      "location" : {
+        "uri" : "file:/example/pi_task/pi_utils.c"
+      },
+      "mimeType" : "text/x-c",
+      "sourceLanguage" : "c"
+    }, {
+      "location" : {
+        "uri" : "file:/example/pi_alg/pi_alg.c"
+      },
+      "mimeType" : "text/x-c",
+      "sourceLanguage" : "c"
+    }, {
+      "location" : {
+        "uri" : "file:/example/pi_app/pi_main.c"
+      },
+      "mimeType" : "text/x-c",
+      "sourceLanguage" : "c"
+    } ],
+    "results" : [ {
+      "ruleId" : "FLOAT_ZERO_DIV",
+      "ruleIndex" : 0,
+      "message" : {
+        "text" : "Division by zero."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 10,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Numerical",
+        "information" : "Impact: High",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 0
+          },
+          "region" : {
+            "startLine" : 27,
+            "startColumn" : 41
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "look_up_even()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "NON_INIT_VAR",
+      "ruleIndex" : 1,
+      "message" : {
+        "text" : "Local variable val is read before it is initialized.\nAdditional Info:\nRisk: Reading non-initialized memory can result in unexpected values.\nFix: Initialize the local variable before use."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 3,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: High",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 125,
+            "startColumn" : 26
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "initialize_io()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "NON_INIT_VAR",
+      "ruleIndex" : 1,
+      "message" : {
+        "text" : "Local variable abs_control_output is read before it is initialized.\nAdditional Info:\nRisk: Reading non-initialized memory can result in unexpected values.\nFix: Initialize the local variable before use."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 4,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: High",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 102,
+            "startColumn" : 9
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "pi_alg()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "NON_INIT_VAR",
+      "ruleIndex" : 1,
+      "message" : {
+        "text" : "Local variable i is read before it is initialized.\nAdditional Info:\nRisk: Reading non-initialized memory can result in unexpected values.\nFix: Initialize the local variable before use."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 7,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: High",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 39,
+            "startColumn" : 5
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "cyc_task1()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "NON_INIT_VAR",
+      "ruleIndex" : 1,
+      "message" : {
+        "text" : "Local variable b is read before it is initialized.\nAdditional Info:\nRisk: Reading non-initialized memory can result in unexpected values.\nFix: Initialize the local variable before use."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 8,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: High",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 44,
+            "startColumn" : 19,
+            "snippet" : {
+              "text" : "        for(i=1 + b;i<10;i++)"
+            }
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "cyc_task1()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "PTR_CAST",
+      "ruleIndex" : 2,
+      "message" : {
+        "text" : "A pointer is implicitly cast to pointer of another type.\nAdditional Info:\nExpected values: Pointer to const uint16 16 bits.\nActual values: Pointer to const uint8 8 bits.\nRisk: Casting a pointer can result in issues such as buffer overflow. If the cast is implicit, it can indicate a coding error.\nFix: Avoid implicit cast of a pointer to a data type different from its declaration type."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 1,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Static memory",
+        "information" : "Impact: Medium",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 30,
+            "startColumn" : 36
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "process_inputs()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "DEAD_CODE",
+      "ruleIndex" : 3,
+      "message" : {
+        "text" : "If-condition always evaluates to false.\nDead branch from line 102 to line 104."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 5,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: Low",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 102,
+            "startColumn" : 5
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "pi_alg()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "MISSING_RETURN",
+      "ruleIndex" : 4,
+      "message" : {
+        "text" : "Missing return statement in non-void function 'pi_alg'. www.google.com"
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 2,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: Low",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 112,
+            "startColumn" : 1
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "pi_alg()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "USELESS_WRITE",
+      "ruleIndex" : 5,
+      "message" : {
+        "text" : "Variable 'k' is never read after this point. www.google.com"
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 6,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: Low",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 1
+          },
+          "region" : {
+            "startLine" : 40,
+            "startColumn" : 5
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "process_inputs()",
+          "kind" : "function"
+        } ]
+      } ]
+    }, {
+      "ruleId" : "USELESS_WRITE",
+      "ruleIndex" : 5,
+      "message" : {
+        "text" : "Variable 'i' is rewritten later without an intermediate read."
+      },
+      "level" : "error",
+      "hostedViewerUri": "https://www.example.com/viewer/unique_path",
+      "baselineState" : "unchanged",
+      "rank" : 100,
+      "kind" : "fail",
+      "properties" : {
+        "tags" : [ "databaseId", "metaFamily", "family", "group", "information", "severity", "status", "comment", "justified", "assignedTo", "ticketKey", "color" ],
+        "databaseId" : 9,
+        "metaFamily" : "Defect",
+        "family" : "Defect",
+        "group" : "Data flow",
+        "information" : "Impact: Low",
+        "severity" : "Unset",
+        "status" : "Unreviewed",
+        "comment" : "",
+        "justified" : false,
+        "color" : "RED"
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "index" : 2
+          },
+          "region" : {
+            "startLine" : 39,
+            "startColumn" : 5
+          }
+        },
+        "logicalLocations" : [ {
+          "fullyQualifiedName" : "cyc_task1()",
+          "kind" : "function"
+        } ]
+      } ]
+    } ]
+  } ]
+}
